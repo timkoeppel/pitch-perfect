@@ -1,10 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <link href="./img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="./img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="./img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="./img/site.webmanifest" rel="manifest">
+    <link color="#5bbad5" href="./img/safari-pinned-tab.svg" rel="mask-icon">
+    <meta content="#da532c" name="msapplication-TileColor">
+    <meta content="#ffffff" name="theme-color">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <title>Pitch Perfect | Train your tonal listening</title>
+    <script src="https://unpkg.com/tone"></script>
+    <script rel="script" src="./js/main.js" type="text/javascript"></script>
 </head>
 <body>
-$END$
+<div class="vh-100 container-fluid d-flex flex-column">
+    <div class="row">
+        <div class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+            <ul class="navbar-nav mb-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <svg class="bi bi-music-note-list" fill="currentColor" height="16" viewBox="0 0 16 16"
+                             width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                            <path d="M12 3v10h-1V3h1z" fill-rule="evenodd"/>
+                            <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/>
+                            <path d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"
+                                  fill-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item" id="nav-pitch-trainer">
+                    <a class="nav-link active" href="#">Pitch Trainer</a>
+                </li>
+                <li class="nav-item" id="nav-about">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row flex-grow-1" id="win-main">
+        <div class="d-flex justify-content-center align-items-start" id="win-setup">
+            <form class="d-flex justify-content-start flex-column align-items-center" id="setup">
+                <!-- DIFFICULTY -->
+                <div aria-describedby="diff-help" aria-label="Basic radio toggle button group"
+                     class="btn-group btn-group-lg setup-item" role="group">
+                    <input autocomplete="off" checked class="btn-check diff-btn" id="custom-btn" name="diffs"
+                           type="radio">
+                    <label class="btn btn-outline-primary" for="custom-btn">Custom</label>
+
+                    <input autocomplete="off" class="btn-check diff-btn" id="easy-btn" name="diffs" type="radio">
+                    <label class="btn btn-outline-dark" for="easy-btn">Easy</label>
+
+                    <input autocomplete="off" class="btn-check diff-btn" id="adv-btn" name="diffs" type="radio">
+                    <label class="btn btn-outline-dark" for="adv-btn">Advanced</label>
+
+                    <input autocomplete="off" class="btn-check diff-btn" id="exp-btn" name="diffs" type="radio">
+                    <label class="btn btn-outline-dark" for="exp-btn">Expert</label>
+                </div>
+                <div class="form-text" id="diff-help">If you please select a difficulty!</div>
+
+                <!-- RANGE -->
+                <div aria-describedby="range-help" aria-label="Basic checkbox toggle button group"
+                     class="btn-group setup-item"
+                     role="group">
+                    <input autocomplete="off" class="btn-check octave" id="C0" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C0">C<sub>0</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C1" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C1">C<sub>1</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C2" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C2">C<sub>2</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C3" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C3">C<sub>3</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C4" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C4">C<sub>4</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C5" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C5">C<sub>5</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C6" required type="checkbox">
+                    <label class="btn btn-outline-dark" for="C6">C<sub>6</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C7" required type="checkbox">
+                    <label class="btn btn-outline-danger" for="C7">C<sub>7</sub></label>
+
+                    <input autocomplete="off" class="btn-check octave" id="C8" required type="checkbox">
+                    <label class="btn btn-outline-danger" for="C8">C<sub>8</sub></label>
+                </div>
+                <div class="form-text" id="range-help">Select the range for your training! (Red octaves might be
+                    unpleasant)
+                </div>
+
+                <!-- CHROMATIC -->
+                <div class="form-check form-switch setup-item">
+                    <input class="form-check-input custom-control-input" id="chromatic-switch" type="checkbox">
+                    <label class="form-check-label custom-control-label" for="chromatic-switch">Include chromatic
+                        notes</label>
+                </div>
+
+                <!-- Submit -->
+                <button class="btn btn-dark setup-item" disabled id="create-btn" type="button">
+                    <svg class="bi bi-music-note-list" fill="currentColor" height="16" viewBox="0 0 16 16"
+                         width="16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                        <path d="M12 3v10h-1V3h1z" fill-rule="evenodd"/>
+                        <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/>
+                        <path d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                    Create Training</button>
+            </form>
+        </div>
+        <div class="invisible" id="win-trainer">
+
+        </div>
+    </div>
+
+    <div class="row flex-grow-1 invisible" id="win-about">
+
+    </div>
+</div>
 </body>
 </html>
