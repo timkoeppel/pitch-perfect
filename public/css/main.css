@@ -1,21 +1,56 @@
-.invisible {
+div, p, .btn {
+    transition: background-color 0.3s ease;
+}
+
+.hidden {
     display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
 }
 
 .navbar a {
     font-size: 1.5em !important;
 }
+
 /*#setup {
     width: 50vw;
 }*/
 
-.setup-item{
+.setup-item {
     margin-top: 20px;
 }
 
-.notes {
+.tones {
     margin-top: 5px;
 }
+
+#play-ctn {
+    margin: 5px 0 5px 0;
+}
+
+.card {
+    padding: 20px;
+}
+
+#note-card {
+    width: 100%;
+    padding: 5px;
+}
+
+#note-card p {
+    margin: 0;
+}
+
+#toSetup-btn svg path{
+    transition: stroke 0.5s ease-in-out;
+}
+
+#toSetup-btn:hover {
+    stroke: currentColor;
+}
+
 
 .custom-control-input:focus,
 .custom-control-label::before {
