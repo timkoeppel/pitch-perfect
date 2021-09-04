@@ -182,7 +182,6 @@ const ScreenManager = {
         guessed.classList.add("btn-outline-dark");
     },
 
-
     setScore: function (correct, total) {
         ScreenManager._DOM.correct_score.innerHTML = correct;
         ScreenManager._DOM.total_score.innerHTML = total;
